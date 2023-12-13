@@ -20,7 +20,7 @@ function typeWriter(p, p_text, p1, p1_text) {
     go()
 }
 
-typeWriter(main_text, "Android developer", main_info, "Hi! I'm Jamaldin. A passionate Android developer based in Kyrgyzstan")
+typeWriter(main_text, "Flutter developer", main_info, "Hi! I'm Jamaldin. A passionate Flutter developer based in Kyrgyzstan")
 
 
 function getRan(min, max) {
