@@ -49,6 +49,10 @@ html {
     height: 2px;
     opacity: 1;
 }
+.navbar_item.active::after {
+    height:  2px;
+    opacity:  1;
+}
 /* -------home */
 #main_about{
     width: 50%;
@@ -73,6 +77,81 @@ html {
     justify-content: center;
     align-items: center;
 }
+
+
+
+@media (max-width: 1000px) {
+    #home {
+        flex-direction: column;
+        padding-top: 100px;
+    }
+    #home_main_text{
+        font-size: 35px;
+        line-height: 40px;
+        height: 100px;
+    }
+    #main_about{
+        /* width: 100%; */
+        
+    }
+    #main_about p{
+        height: 90px;
+    }
+    #self_container{
+        width: 200px !important;
+        height: 200px !important;
+        margin-top: 40px;
+        margin-left: 0px;
+    }
+    .navbar_item {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    #navbar{
+        /* width: auto; */
+    }
+    #tech{
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-top: 200px !important;
+        height: auto;
+    }
+    #tech_items{
+        display: table-column;
+        grid-template-columns: auto auto auto;
+    }
+    #about_container{
+        display: block !important;
+    }
+    #about_texts{
+        width: 100%;
+        margin-left: 0px !important;
+        margin-top: 30px !important;
+    }
+    #about_container{
+        margin: auto !important;
+        width: 80vw !important;
+        text-align: center !important;
+    }
+    #project{
+        display: block !important;
+    }
+    #project2{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    #contact_container{
+        display: block !important;
+    }
+    #project_texts{
+        margin-left: 0px !important;
+        margin-right: 0px !important;
+    }
+    #project_title{
+        margin-top: 20px !important;
+        margin-bottom: 10px !important;
+    }
+}
 #self{
     width: 120%;
     height: 120%;
@@ -83,6 +162,7 @@ html {
 #self_container{
     width: 300px;
     height: 300px;
+    margin-left: 20px;
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -121,6 +201,15 @@ html {
 }
 /* -----------projects */
 #project {
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+    width: 60vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+#project2 {
     margin-top: 100px;
     display: flex;
     align-items: center;
@@ -175,4 +264,8 @@ html {
 .effect.active{
     transform: translateY(0);
     opacity: 1;
+}
+#project_title{
+    font-size: 20px;
+    font-weight: bolder;
 }
