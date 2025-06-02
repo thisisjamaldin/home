@@ -9,6 +9,33 @@ html {
     scroll-behavior: smooth;
 }
 
+#lang-switcher {
+  display: inline-flex;
+  border: 2px solid #333;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.lang-btn {
+  background: transparent;
+  border: none;
+  padding: 5px 15px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  color: #333;
+}
+
+.lang-btn.active {
+  background-color: #333;
+  color: #fff;
+}
+
+.lang-btn:not(.active):hover {
+  background-color: rgba(0,0,0,0.1);
+}
+
 #navbar{
     display: flex;
     position: fixed;
