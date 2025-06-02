@@ -120,15 +120,13 @@ html {
         display: table-column;
         grid-template-columns: auto auto auto;
     }
-    #about_container{
-        display: block !important;
-    }
     #about_texts{
         width: 100%;
         margin-left: 0px !important;
         margin-top: 30px !important;
     }
     #about_container{
+        display: block !important;
         margin: auto !important;
         width: 80vw !important;
         text-align: center !important;
@@ -184,7 +182,7 @@ html {
     align-items: center;
     justify-content: center;    
     width: 60vw;
-    margin-top: 100px;
+    margin-top: 50px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -201,7 +199,7 @@ html {
 }
 /* -----------projects */
 #project {
-    margin-top: 100px;
+    margin-top: 50px;
     display: flex;
     align-items: center;
     justify-content: center;    
@@ -252,7 +250,7 @@ html {
     padding-right: 100px;
     background-color: black;
     color: white;
-    margin-top: 40vh;
+    margin-top: 20vh;
 }
 
 .effect{
