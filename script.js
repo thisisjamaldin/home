@@ -127,7 +127,7 @@ function translateAll() {
     const key = el.getAttribute("data-i18n-key");
     const entry = translations[key];
     if (entry && entry[currentLang] !== undefined) {
-      el.innerText = entry[currentLang];
+      el.innerHTML = entry[currentLang];
     }
   });
 
