@@ -3,6 +3,10 @@
 // ----------------------------------------
 
 // 1. All text keys and translations:
+const fileMap = {
+  en: { href: "cv.pdf", downloadName: "My-CV.pdf" },
+  ru: { href: "cv_ru.pdf", downloadName: "Моё-резюме.pdf" } // change the suggested filename as you like
+};
 const translations = {
   // Navbar
   "nav.home":       { en: "Home",          ru: "Главная" },
@@ -21,11 +25,10 @@ const translations = {
 
   // About section
   "about.heading":  { en: "About me",      ru: "Обо мне" },
-  "about.title":    { en: "As a self-taught programmer,",    
-                      ru: "Самоучка-программист," },
+  "download.cv":  { en: "Download CV",      ru: "Скачать резюме" },
   "about.description": {
-    en: "who first started creating games in Unity C# and then switched to Django to create his own Rest API to interact with Android apps. He started getting interested in developing Android apps and graduated an Android development course <a href='https://geeks.kg' target='_blank'>Geeks</a> which taught him Android Studio. As other developers he tried to make an app and start a startup; after finishing the Android version he realized he also needed an iOS version and began learning Swift in the process of developing his app. Then he found a job as a Flutter developer and understood that Flutter can replace native development once he saw popular apps and how devices were becoming faster.",
-    ru: "сначала создавал игры на Unity C#, затем перешёл на Django, чтобы создать собственный REST API для взаимодействия с Android-приложениями. Увлёкся разработкой Android-приложений и окончил курс Android-разработки <a href='https://geeks.kg' target='_blank'>Geeks</a>, где учили Android Studio. Как и многие, решил сделать приложение и запустить стартап; после выпуска Android-версии понял, что нужна iOS-версия, и начал изучать Swift прямо в процессе разработки. Затем устроился Flutter-разработчиком и убедился, что Flutter может заменить нативную разработку, когда увидел популярные приложения и рост производительности устройств."
+    en: "Self-taught mobile developer with experience in Unity (C#), Django REST APIs, Android (Android Studio), Swift, and Flutter — focused on building performant, cross-platform apps.",
+    ru: "Самоучка-разработчик мобильных приложений с опытом работы в Unity (C#), Django REST API, Android (Android Studio), Swift и Flutter — специализируется на создании высокопроизводительных кроссплатформенных приложений."
   },
 
   // Projects section
@@ -138,6 +141,15 @@ function translateAll() {
   const text2 = translations["home.subtitle"][currentLang];
 
   typeWriter(homeTitleEl, text1, homeInfoEl, text2);
+  const downloadEl = document.querySelector('[data-i18n-key="download.cv"]');
+  if (downloadEl) {
+    const file = fileMap[currentLang] || fileMap.en; // fallback to en
+    downloadEl.setAttribute("href", file.href);
+    // set a friendly suggested filename (browser may respect it)
+    downloadEl.setAttribute("download", file.downloadName);
+    // update accessible label if you want to include language
+    downloadEl.setAttribute("aria-label", translations["download.cv"][currentLang] + " (" + (currentLang === "ru" ? "PDF на русском" : "PDF in English") + ")");
+  }
 }
 
 // 5. On DOMContentLoaded, set up the language‐switcher pills and do the first translation

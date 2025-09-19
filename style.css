@@ -28,6 +28,38 @@ html {
   color: #333;
 }
 
+.download-btn{
+      display:inline-flex;
+      align-items:center;
+      /* gap:.6rem; */
+      padding:.75rem 1.1rem;
+      background:var(--btn-bg);
+      color:var(--btn-text);
+      font-weight:600;
+      font-size:1rem;
+      text-decoration:none;
+      border-radius:12px;
+      box-shadow:0 0 8px rgba(2,6,23,.2);
+      transition:transform .12s ease, box-shadow .12s ease, background .12s ease;
+      border: none;
+      cursor:pointer;
+    }
+
+    .download-btn:active{ transform:translateY(1px); }
+    .download-btn:hover{
+      background:var(--btn-bg-hover);
+      box-shadow:0 0 12px rgba(2,6,23,.3);
+    }
+
+    /* small arrow/download icon using pseudo element */
+    .download-btn::before{
+      content:"⬇";
+      display:inline-block;
+      font-size:1.05rem;
+      line-height:1;
+      transform:translateY(.05rem);
+    }
+
 .lang-btn.active {
   background-color: #333;
   color: #fff;
