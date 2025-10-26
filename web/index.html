@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
+
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    For more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+
+    This is a placeholder for base href that will be replaced by the value of
+    the `--base-href` argument provided to `flutter build`.
+  -->
+  <base href="$FLUTTER_BASE_HREF">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="A new Flutter project.">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="my_web">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png" />
+
+  <title>Jamaldin</title>
+  <link rel="manifest" href="manifest.json">
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
+      background: #071021;
+      color: #e6eef6
+    }
+
+    .center {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center
+    }
+
+    .loader {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      align-items: center
+    }
+
+    .spinner {
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      border: 8px solid rgba(255, 255, 255, 0.06);
+      border-top-color: #7c4dff;
+      animation: spin 1s linear infinite;
+      box-shadow: 0 6px 24px rgba(124, 77, 255, 0.12)
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg)
+      }
+    }
+
+    .text {
+      font-size: 14px;
+      color: #9aa4b2
+    }
+
+    .hidden {
+      display: none !important
+    }
+
+    @media (max-width:420px) {
+      .spinner {
+        width: 64px;
+        height: 64px;
+        border-width: 6px
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="center">
+    <div class="loader" id="loader">
+      <div class="spinner" role="img" aria-label="Loading"></div>
+      <div class="text" id="stat">Loading app…</div>
+    </div>
+  </div>
+
+
+  <!-- Script: hide loader when Flutter runtime is ready or when main.dart.js loads -->
+  <script>
+    (function () {
+      const statEl = document.getElementById('stat');
+      const loader = document.getElementById('loader');
+      let hidden = false;
+
+
+      function hideLoader(msg) {
+        if (hidden) return; hidden = true;
+        if (msg) statEl.textContent = msg;
+        // smooth fade and remove
+        loader.style.transition = 'opacity 320ms ease, transform 320ms ease';
+        loader.style.opacity = '0';
+        loader.style.transform = 'scale(0.98)';
+        setTimeout(() => {
+          try { loader.classList.add('hidden'); } catch (e) { }
+        }, 340);
+      }
+
+
+      // 1) attach to main.dart.js if present
+      const scripts = Array.from(document.getElementsByTagName('script'));
+      const mainScript = scripts.find(s => /main(\.|-)dart(\.|-)js/.test(s.src) || /main\.dart\.js$/.test(s.src));
+      if (mainScript) {
+        if (mainScript.hasAttribute('data-loaded')) { hideLoader('Starting app…'); }
+        else mainScript.addEventListener('load', () => hideLoader('Starting app…'));
+      }
+
+
+      // 2) fallback: watch for Flutter runtime globals
+      const checkFlutter = setInterval(() => {
+        if (window.flutter || window.flutterWebRenderer || window.flutter_inappwebview) {
+          clearInterval(checkFlutter);
+          hideLoader('Runtime ready');
+        }
+      }, 250);
+
+
+      // 3) safety: hide after 20s with a message if still not ready
+      setTimeout(() => {
+        if (!hidden) { hideLoader('Offline or slow network — launching fallback'); }
+      }, 20000);
+    })();
+  </script>
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+
+</html>
