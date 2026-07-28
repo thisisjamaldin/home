@@ -13,6 +13,7 @@ Map<String, Map<String, String>> trans = {
     "Light": "Светлый",
     "name": "Жамалдин Сабиржанов",
     "Email": "Почта",
+    "CV": "Скачать резюме",
     "About me": "О себе",
     "about":
         "Самоучка-разработчик мобильных приложений с опытом работы в Unity (C#), Django REST API, Android (Android Studio), Swift и Flutter — специализируется на создании высокопроизводительных кроссплатформенных приложений.",
@@ -31,6 +32,7 @@ Map<String, Map<String, String>> trans = {
   "en": {
     "Dark": "Dark",
     "Light": "Light",
+    "CV": "Download CV",
     "name": "Jamaldin Sabirjanov",
     "Email": "Email",
     "About me": "About me",
@@ -67,6 +69,7 @@ class _MainApState extends State<MainApp> {
   late double width;
   late Map<String, String> lang;
   final ScrollController _scrollController = ScrollController();
+  bool showDownload = false;
 
   @override
   void initState() {
@@ -154,7 +157,7 @@ class _MainApState extends State<MainApp> {
     DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
     WebBrowserInfo webInfo = await deviceInfo.webBrowserInfo;
     setState(() {
-      ru = webInfo.language?.contains('en') == true;
+      ru = webInfo.language?.toLowerCase().contains('ru') == true;
     });
     final r = await http.get(Uri.parse('https://api.ipify.org?format=json'));
     final json = jsonDecode(r.body) as Map<String, dynamic>;
@@ -183,92 +186,124 @@ class _MainApState extends State<MainApp> {
   Widget me() {
     return mContainer(
       width: 310,
-      Column(
-        mainAxisSize: MainAxisSize.min,
+      Stack(
+        clipBehavior: Clip.none,
         children: [
-          ClipOval(
-            child: Image.asset('assets/self.jpg', width: 100, height: 100),
-          ),
-          SizedBox(height: 12),
-          Text(lang['name']!, style: titleStyle()),
-          SizedBox(height: 6),
-          Text('Flutter developer'),
-          Row(
+          Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              InkWell(
-                child: mContainer(
-                  Text('Telegram', textAlign: TextAlign.center),
-                  width: 90,
-                  padding: EdgeInsets.all(8),
-                ),
+              ClipOval(
+                child: Image.asset('assets/self.jpg', width: 100, height: 100),
               ),
-              InkWell(
-                child: mContainer(
-                  Text(lang['Email']!, textAlign: TextAlign.center),
-                  width: 90,
-                  padding: EdgeInsets.all(8),
+              SizedBox(height: 12),
+              Text(lang['name']!, style: titleStyle()),
+              SizedBox(height: 6),
+              Text('Flutter developer'),
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  InkWell(
+                    child: mContainer(
+                      Text('Telegram', textAlign: TextAlign.center),
+                      width: 90,
+                      padding: EdgeInsets.all(8),
+                    ),
+                  ),
+                  InkWell(
+                    child: mContainer(
+                      Text(lang['Email']!, textAlign: TextAlign.center),
+                      width: 90,
+                      padding: EdgeInsets.all(8),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                width: 204,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    InkWell(
+                      onTap: () {
+                        launchUrlString(
+                          'https://www.linkedin.com/in/thisisjamaldin/',
+                        );
+                      },
+                      child: Image.asset(
+                        'assets/ic_linkedin.png',
+                        width: 30,
+                        color: light ? Colors.black : null,
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        launchUrlString('https://github.com/thisisjamaldin/');
+                      },
+                      child: Image.asset(
+                        'assets/ic_git.png',
+                        width: 30,
+                        color: light ? Colors.black : null,
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        launchUrlString(
+                          'https://play.google.com/store/apps/dev?id=8970769377791896090/',
+                        );
+                      },
+                      child: Image.asset(
+                        'assets/ic_play.png',
+                        width: 30,
+                        color: light ? Colors.black : null,
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        launchUrlString(
+                          'https://apps.apple.com/us/developer/zhamoldin-sabirzhanov/id1812576196/',
+                        );
+                      },
+                      child: Image.asset(
+                        'assets/ic_apple.png',
+                        width: 30,
+                        color: light ? Colors.black : null,
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ],
           ),
-          SizedBox(
-            width: 204,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                InkWell(
-                  onTap: () {
-                    launchUrlString(
-                      'https://www.linkedin.com/in/thisisjamaldin/',
-                    );
-                  },
-                  child: Image.asset(
-                    'assets/ic_linkedin.png',
-                    width: 30,
-                    color: light ? Colors.black : null,
-                  ),
-                ),
-                InkWell(
-                  onTap: () {
-                    launchUrlString('https://github.com/thisisjamaldin/');
-                  },
-                  child: Image.asset(
-                    'assets/ic_git.png',
-                    width: 30,
-                    color: light ? Colors.black : null,
-                  ),
-                ),
-                InkWell(
-                  onTap: () {
-                    launchUrlString(
-                      'https://play.google.com/store/apps/dev?id=8970769377791896090/',
-                    );
-                  },
-                  child: Image.asset(
-                    'assets/ic_play.png',
-                    width: 30,
-                    color: light ? Colors.black : null,
-                  ),
-                ),
-                InkWell(
-                  onTap: () {
-                    launchUrlString(
-                      'https://apps.apple.com/us/developer/zhamoldin-sabirzhanov/id1812576196/',
-                    );
-                  },
-                  child: Image.asset(
-                    'assets/ic_apple.png',
-                    width: 30,
-                    color: light ? Colors.black : null,
-                  ),
-                ),
-              ],
+          Positioned(
+            right: 0,
+            top: 0,
+            child: IconButton(
+              onHover: (value) {
+                if (value != showDownload) {
+                  setState(() {
+                    showDownload = value;
+                  });
+                }
+              },
+              onPressed: downloadResume,
+              icon: Icon(
+                Icons.download,
+                color: light ? Colors.black : Colors.white,
+              ),
             ),
           ),
+          if (showDownload)
+            Positioned(right: -24, top: -20, child: Text(lang['CV']!)),
         ],
       ),
     );
+  }
+
+  void downloadResume() {
+    final url = ru
+        ? 'https://github.com/thisisjamaldin/home/blob/master/cv_ru.pdf?raw=1'
+        : 'https://github.com/thisisjamaldin/home/blob/master/cv.pdf?raw=1';
+    launchUrlString(url, webOnlyWindowName: '_blank');
   }
 
   Widget about() {
