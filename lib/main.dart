@@ -567,7 +567,7 @@ class _MainApState extends State<MainApp> {
               project(
                 'JetKir Менеджер',
                 lang['7']!,
-                'https://play-lh.googleusercontent.com/9J5N6uy84UNcCxq6MW1aeS9Fof9pzUY8Rl3r4-rwdin_78oGJY7jPflGsM9_hDQBb9aAQCIHMxtjWV5LuEsArL4=w240-h480-rw',
+                'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/dc/ae/26/dcae267a-64f5-95ec-086e-6eb2c449b041/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg',
                 'https://play.google.com/store/apps/details?id=com.prolab.jetkir_cargo',
                 'https://apps.apple.com/us/app/jetkir-менеджер/id6760580327',
               ),
