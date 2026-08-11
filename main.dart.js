@@ -68385,7 +68385,7 @@ k.toString
 k=d.hK("iBonus",k,"https://play-lh.googleusercontent.com/qIwu-2zTzp0m9P6IJz89RgPKd6o9NL3CV6eLQn2icSm0mMUKnG7vlVrTE0rRX341D5iSABm5SXmweRohBlUXrAA=w240-h480-rw","https://play.google.com/store/apps/details?id=com.prolab.ibonus","https://apps.apple.com/us/app/ibonus-app/id6742104481")
 j=d.r.i(0,"7")
 j.toString
-j=d.hK("JetKir \u041c\u0435\u043d\u0435\u0434\u0436\u0435\u0440",j,"https://play-lh.googleusercontent.com/9J5N6uy84UNcCxq6MW1aeS9Fof9pzUY8Rl3r4-rwdin_78oGJY7jPflGsM9_hDQBb9aAQCIHMxtjWV5LuEsArL4=w240-h480-rw","https://play.google.com/store/apps/details?id=com.prolab.jetkir_cargo","https://apps.apple.com/us/app/jetkir-\u043c\u0435\u043d\u0435\u0434\u0436\u0435\u0440/id6760580327")
+j=d.hK("JetKir \u041c\u0435\u043d\u0435\u0434\u0436\u0435\u0440",j,"https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/dc/ae/26/dcae267a-64f5-95ec-086e-6eb2c449b041/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg","https://play.google.com/store/apps/details?id=com.prolab.jetkir_cargo","https://apps.apple.com/us/app/jetkir-\u043c\u0435\u043d\u0435\u0434\u0436\u0435\u0440/id6760580327")
 i=d.r.i(0,"8")
 i.toString
 i=d.hK("NurCrm",i,"https://play-lh.googleusercontent.com/3Khq0IK1W7nXpamRxZ5vQvJLByKspfbmol5oJX4QxAfekF3rw59pvQQBRuFA9xTiimagh5KL0nsUQkF8y-eI=w240-h480-rw","https://play.google.com/store/apps/details?id=com.dev.nurcrm","https://apps.apple.com/kz/app/nurcrm/id6756206325")
