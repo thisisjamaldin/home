@@ -12,44 +12,73 @@ Map<String, Map<String, String>> trans = {
     "Dark": "Темный",
     "Light": "Светлый",
     "name": "Жамалдин Сабиржанов",
+    "role": "Мобильный разработчик · Flutter, iOS и Android",
+    "stat": "10+ приложений выпущено с 2021 года",
     "Email": "Почта",
     "CV": "Скачать резюме",
     "About me": "О себе",
     "about":
-        "Самоучка-разработчик мобильных приложений с опытом работы в Unity (C#), Django REST API, Android (Android Studio), Swift и Flutter — специализируется на создании высокопроизводительных кроссплатформенных приложений.",
+        "Мобильный разработчик, создаю кроссплатформенные приложения с 2021 года — более 10 продуктов, опубликованных в App Store и Google Play. Работаю с Flutter, нативным Android (Kotlin/Java) и iOS (Swift). Реализовал приложения для логистики, e-commerce, CRM/ERP и маркетплейсов — от архитектуры и интеграции API до релиза. Беру функциональность под полную ответственность и выпускаю продукты, которыми пользуется реальный бизнес.",
     "Tech Stack": "Технологии",
     "Projects": "Проекты",
     "1":
-        "Amanat Store — это удобный магазин товаров для дома, который предлагает пользователям бонусную систему за покупки.",
+        "Приложение для управления грузоперевозками: заказы, отслеживание в реальном времени и защита данных.",
     "2":
-        'Intex Cargo — это современное приложение для управления грузоперевозками и логистикой.',
+        "Приложение для магазина товаров для дома с бонусной системой, управлением заказами и уведомлениями об акциях.",
     "3":
-        'Jerdesh Москва — это современное приложение, которое объединяет поиск жилья и работы в одном месте.',
+        "Доставка грузов по СНГ с отслеживанием отправлений в реальном времени и поддержкой 24/7.",
     "4":
-        'Это приложение представляет собой цифровой инструмент, который помогает частным лицам и компаниям управлять своими финансовыми записями и выполнять различные бухгалтерские задачи.',
-    "5": 'SindbadCity — маркетплейс товаров из Азии с молниеносной доставкой!',
+        "Локальная доска объявлений: работа, жильё, товары и услуги в Кыргызстане.",
+    "5":
+        "Поиск жилья и работы для киргизской диаспоры в Москве — умные фильтры и актуальные объявления.",
+    "6":
+        "Кэшбэк и бонусы: сканируйте QR-коды, копите баллы и обменивайте их на скидки в магазинах и кафе.",
+    "7":
+        "Приложение для управления бизнесом: заказы в реальном времени, база клиентов, аналитика продаж и уведомления.",
+    "8":
+        "Мобильная CRM+ERP: клиенты, продажи и склад — полное управление бизнесом в одном приложении.",
+    "9":
+        "Маркетплейс для заказа товаров из Кара-Суу и Оша по оптовым ценам.",
+    "10":
+        "Академическая соцсеть для студентов вузов Кыргызстана: профили, посты, сообщения и уведомления.",
+    "11":
+        "Менеджер личных финансов: учёт доходов и расходов с быстрым ручным вводом.",
   },
   "en": {
     "Dark": "Dark",
     "Light": "Light",
     "CV": "Download CV",
     "name": "Jamaldin Sabirjanov",
+    "role": "Mobile Developer · Flutter, iOS & Android",
+    "stat": "10+ apps shipped since 2021",
     "Email": "Email",
     "About me": "About me",
     "about":
-        "Self-taught mobile developer with experience in Unity (C#), Django REST APIs, Android (Android Studio), Swift, and Flutter — focused on building performant, cross-platform apps.",
+        "Mobile developer building cross-platform apps since 2021, with 10+ products shipped to the App Store and Google Play. I work across Flutter, native Android (Kotlin/Java) and iOS (Swift), and have delivered logistics, e-commerce, CRM/ERP and marketplace apps — from architecture and API integration through to release. I own features end-to-end and ship production apps used by real businesses.",
     "Tech Stack": "Tech Stack",
     "Projects": "Projects",
     "1":
-        "Amanat Store is a convenient hardware store that offers users a bonus system for purchases.",
+        "Logistics platform for managing cargo shipments end-to-end — orders, real-time tracking, and secure data handling.",
     "2":
-        'Intex Cargo is a modern application for managing cargo transportation and logistics.',
+        "E-commerce app for a hardware retailer with a loyalty/bonus system, order management, and promo notifications.",
     "3":
-        'Jerdesh Moskva is a modern application that combines search for housing and work in one place.',
+        "Cargo delivery across the CIS with real-time shipment tracking and 24/7 support.",
     "4":
-        'This app is a digital tool that helps individuals and businesses manage their financial records and perform various accounting tasks.',
+        "Local classifieds marketplace for jobs, housing, goods and services in Kyrgyzstan.",
     "5":
-        'SindbadCity — a marketplace for goods from Asia with lightning-fast delivery!',
+        "Housing and job search app for the Kyrgyz community in Moscow, with smart filters and live listings.",
+    "6":
+        "Cashback and loyalty app — scan QR codes, collect points, and redeem them for discounts across stores and cafes.",
+    "7":
+        "Business management app — real-time order management, customer database, sales analytics, and notifications.",
+    "8":
+        "Mobile CRM + ERP that puts full business management — clients, sales, inventory — in a single app.",
+    "9":
+        "Marketplace for ordering goods from Kara-Suu and Osh at wholesale prices.",
+    "10":
+        "Academic social network for university students in Kyrgyzstan — profiles, posts, messaging and notifications.",
+    "11":
+        "Personal finance manager for tracking income and expenses with fast manual entry.",
   },
 };
 
@@ -198,7 +227,14 @@ class _MainApState extends State<MainApp> {
               SizedBox(height: 12),
               Text(lang['name']!, style: titleStyle()),
               SizedBox(height: 6),
-              Text('Flutter developer'),
+              Text(lang['role']!, textAlign: TextAlign.center),
+              SizedBox(height: 6),
+              Text(
+                lang['stat']!,
+                textAlign: TextAlign.center,
+                style: TextStyle(fontWeight: FontWeight.w600),
+              ),
+              SizedBox(height: 4),
               Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -420,7 +456,8 @@ class _MainApState extends State<MainApp> {
     );
   }
 
-  Widget project(title, desc, img, play, store) {
+  Widget project(String title, String desc, String img, String? play,
+      String? store) {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -431,23 +468,25 @@ class _MainApState extends State<MainApp> {
         SizedBox(height: 4),
         Text(title, style: titleStyle()),
         SizedBox(height: 4),
-        Text(desc, maxLines: 2, overflow: TextOverflow.ellipsis),
+        Text(desc, maxLines: 3, overflow: TextOverflow.ellipsis),
         SizedBox(height: 8),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            InkWell(
-              onTap: () {
-                launchUrlString(play);
-              },
-              child: Image.asset('assets/google_play.png', width: 100),
-            ),
-            InkWell(
-              onTap: () {
-                launchUrlString(store);
-              },
-              child: Image.asset('assets/app_store.png', width: 100),
-            ),
+            if (play != null)
+              InkWell(
+                onTap: () {
+                  launchUrlString(play);
+                },
+                child: Image.asset('assets/google_play.png', width: 100),
+              ),
+            if (store != null)
+              InkWell(
+                onTap: () {
+                  launchUrlString(store);
+                },
+                child: Image.asset('assets/app_store.png', width: 100),
+              ),
           ],
         ),
       ],
@@ -484,39 +523,81 @@ class _MainApState extends State<MainApp> {
             ),
             children: [
               project(
-                'Amanat Store',
-                lang['1']!,
-                'https://raw.githubusercontent.com/thisisjamaldin/apps-icons/refs/heads/main/1.webp',
-                'https://play.google.com/store/apps/details?id=com.prolab.amantstore',
-                'https://apps.apple.com/us/app/amanat-store/id6738306157',
-              ),
-              project(
                 'Intex Cargo',
-                lang['2']!,
-                'https://raw.githubusercontent.com/thisisjamaldin/apps-icons/refs/heads/main/2.webp',
+                lang['1']!,
+                'https://play-lh.googleusercontent.com/sGuKr4QKIIZh1dJJE7ASzVEYgLmzWfO-2b_eTfa9cFsvgOZUiSLNKAZB0unmo2jj3thEd4prRVgDiyFJVCNCmA=w240-h480-rw',
                 'https://play.google.com/store/apps/details?id=com.prolab.intex_cargo',
                 'https://apps.apple.com/us/app/intex-cargo/id6739423271',
               ),
               project(
-                'Jerdesh Moskva',
+                'Amanat Store',
+                lang['2']!,
+                'https://play-lh.googleusercontent.com/eRBglXvPc67q8lYjW93vGezjsktXLpwcxk-8czgKA8y3HkcYXyzfW555rM5IUlu5Jf9tGW7oClxkk3UYbTsLdQo=w240-h480-rw',
+                'https://play.google.com/store/apps/details?id=com.prolab.amantstore',
+                'https://apps.apple.com/us/app/amanat-store/id6738306157',
+              ),
+              project(
+                'Lider Cargo Company',
                 lang['3']!,
-                'https://raw.githubusercontent.com/thisisjamaldin/apps-icons/refs/heads/main/3.webp',
+                'https://play-lh.googleusercontent.com/c5yrzEK7YH7wqjOTarNmXds4T1fWiGgv6kx9WoM_iSeAhh3AWfUngGPxFNPt5-uZJZGp3uu62x8YiI0Ab3On6g=w240-h480-rw',
+                'https://play.google.com/store/apps/details?id=com.prolab.cargo_b2c',
+                'https://apps.apple.com/us/app/lider-cargo-company/id6723893601',
+              ),
+              project(
+                'AravanGo',
+                lang['4']!,
+                'https://play-lh.googleusercontent.com/Y1Ve5InBePnMTCMftKAuBbz92y3yOdyIEC9CcW3RPFNuL6VDZiV5VE12GUAGedpvArf8dyv2BRfNUeGlOMJFUQ=w240-h480-rw',
+                'https://play.google.com/store/apps/details?id=com.prolab.aravan',
+                'https://apps.apple.com/us/app/aravango/id6780416976',
+              ),
+              project(
+                'Жердеш Москва',
+                lang['5']!,
+                'https://play-lh.googleusercontent.com/sWCxn52HwkxGRzN_ruhIGcQP5Ci8mkHTuUyNSAfg99CgbZ6J2klkeHzEFuiWUi5WC5076Cw15aOYXOBBft_8XGs=w240-h480-rw',
                 'https://play.google.com/store/apps/details?id=com.prolab.jerdesh',
                 'https://apps.apple.com/us/app/id6743311675',
               ),
               project(
-                'Cella',
-                lang['4']!,
-                'https://raw.githubusercontent.com/thisisjamaldin/apps-icons/refs/heads/main/4.webp',
-                'https://play.google.com/store/apps/details?id=com.thisisjamaldin.cella',
-                'https://apps.apple.com/us/app/cella/id6745497749',
+                'iBonus',
+                lang['6']!,
+                'https://play-lh.googleusercontent.com/qIwu-2zTzp0m9P6IJz89RgPKd6o9NL3CV6eLQn2icSm0mMUKnG7vlVrTE0rRX341D5iSABm5SXmweRohBlUXrAA=w240-h480-rw',
+                'https://play.google.com/store/apps/details?id=com.prolab.ibonus',
+                'https://apps.apple.com/us/app/ibonus-app/id6742104481',
               ),
               project(
-                'SindbadCity',
-                lang['5']!,
-                'https://raw.githubusercontent.com/thisisjamaldin/apps-icons/refs/heads/main/5.webp',
-                'https://play.google.com/store/apps/details?id=com.sindbadcity',
-                'https://apps.apple.com/ru/app/sindbadcity/id6444826905',
+                'JetKir Менеджер',
+                lang['7']!,
+                'https://play-lh.googleusercontent.com/9J5N6uy84UNcCxq6MW1aeS9Fof9pzUY8Rl3r4-rwdin_78oGJY7jPflGsM9_hDQBb9aAQCIHMxtjWV5LuEsArL4=w240-h480-rw',
+                'https://play.google.com/store/apps/details?id=com.prolab.jetkir_cargo',
+                'https://apps.apple.com/us/app/jetkir-менеджер/id6760580327',
+              ),
+              project(
+                'NurCrm',
+                lang['8']!,
+                'https://play-lh.googleusercontent.com/3Khq0IK1W7nXpamRxZ5vQvJLByKspfbmol5oJX4QxAfekF3rw59pvQQBRuFA9xTiimagh5KL0nsUQkF8y-eI=w240-h480-rw',
+                'https://play.google.com/store/apps/details?id=com.dev.nurcrm',
+                'https://apps.apple.com/kz/app/nurcrm/id6756206325',
+              ),
+              project(
+                'Zamzam',
+                lang['9']!,
+                'https://play-lh.googleusercontent.com/IL4aQe8Tc6nNIgvjLy_ma7t66eK69TS9HebEgjKyv1W1yg0K9EgC-cU9vjXwRnnHt2BlIEpkBZABDgAUPM7Bcg=w240-h480-rw',
+                'https://play.google.com/store/apps/details?id=com.thisisjamaldin.zamzam',
+                null,
+              ),
+              project(
+                'UniPulse',
+                lang['10']!,
+                'https://play-lh.googleusercontent.com/9Eog-n5mSlG-tAylMbrjlVpF1euy4ao_WyQkB1tut7H6-NYbkHNKzi5XUlTNUnriKr9f7v2anuwrn0c9PfmW7o4=w240-h480-rw',
+                'https://play.google.com/store/apps/details?id=com.dev.uni_pulse',
+                null,
+              ),
+              project(
+                'Besh Tashta',
+                lang['11']!,
+                'https://play-lh.googleusercontent.com/TWznuTJ3fHgVI1FlJl165C6t6BzK2PMpRdDB1JHWMcjAsGcZh3TO4PCNzmt3wxNqYvXiWqxQgKDP5PSxG_raHA=w240-h480-rw',
+                'https://play.google.com/store/apps/details?id=com.dev.besh_tashta',
+                'https://apps.apple.com/kg/app/беш-ташта/id6757864681',
               ),
             ],
           ),
