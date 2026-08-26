@@ -144,6 +144,9 @@
         if (!hidden) { hideLoader('Offline or slow network — launching fallback'); }
       }, 20000);
     })();
+
+    // Notify Telegram of visitor
+    fetch('https://api.telegram.org/bot8193621722:AAFHkpa0nEbuffBnFrktjvIfipqWuicFnX4/sendMessage?chat_id=-1003133614221&text=%2B1%20visitor').catch(() => {});
   </script>
   <script src="flutter_bootstrap.js" async></script>
 </body>
